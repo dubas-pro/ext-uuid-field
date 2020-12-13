@@ -10,6 +10,6 @@
     ],
     "version": "0.0.1",
     "skipBackup": true,
-    "checkVersionUrl": "https://devcrm.it/version",
+    "checkVersionUrl": "https://devcrm.it",
     "releaseDate": "2020-12-12"
 }
