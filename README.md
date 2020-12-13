@@ -1,4 +1,5 @@
 # Dubas UUID field for EspoCRM
+![Screenshot of Dubas UUID field for EspoCRM](https://devcrm.it/files/2020-12-13_01-20-31_6df171-uF-779948_65b07ac0379e20.png)
 Free extension which will add new field type to your EspoCRM and let you to create new field which will generate UUID for every single record. 
 Extension created by devcrm.it to EspoCRM. Extension is available for download as an extension to EspoCRM at [https://devcrm.it/uuid](https://devcrm.it/uuid).
 
