@@ -1,0 +1,28 @@
+{
+    "params": [
+        {
+            "name": "uuidVersion",
+            "type": "enum",
+            "default": "4",
+            "options": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5"
+            ],
+            "translation": "FieldManager.options.uuidVersion"
+        }
+    ],
+    "view": "dubas-uuid-field:views/fields/uuid",
+    "filter": true,
+    "fieldDefs": {
+        "type": "varchar",
+        "len": 36,
+        "notNull": false,
+        "unique": false
+    },
+    "hookClassName": "\\Espo\\Modules\\DubasUuidField\\Core\\Utils\\FieldManager\\Hooks\\UuidType",
+    "textFilter": true,
+    "readOnly": true
+}
