@@ -5,7 +5,7 @@ Extension created by devcrm.it to EspoCRM. Extension is available for download a
 
 Our extension support two versions of UUID. The [first(time-based)](https://uuid.ramsey.dev/en/latest/rfc4122/version1.html) and [fourth(random)](https://uuid.ramsey.dev/en/latest/rfc4122/version4.html). We've integrated [ramsey/uuid composer package](https://github.com/ramsey/uuid) to generate UUID's in proper way. 
 
-This repo is for comments only, but we do not give any warranty for the theme or installer. You install this theme on your own responsibility. We do not provide additional free support.
+This repo is for comments only, but we do not give any warranty for the extension or installer. You install this extension on your own responsibility. We do not provide additional free support.
 
 ## Requirements
 1. EspoCRM in version higher than 6.0.0.
@@ -31,5 +31,5 @@ This repo is for comments only, but we do not give any warranty for the theme or
 2. We're using UUID's in our attachments extension. EntryPoint require not only token but also unique UUID and based on that information decide is user should have access to specific attachment.
 
 ## Support
-This theme is shared without any support. Theme is available as it is.
+This extension is shared without any support. Extension is available as it is.
 If you want to order some service, all information about us you can find on our website [https://devcrm.it/](https://devcrm.it/).
