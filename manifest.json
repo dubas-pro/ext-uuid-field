@@ -1,15 +1,15 @@
 {
     "name": "Dubas UUID Field for EspoCRM",
-    "description": "Add field for generating universally unique identifiers (UUIDs).",
+    "description": "Add field for generating universally unique identifiers (UUIDs). Paid support available through email: contact@dubas.pro.",
     "author": "DUBAS - contact@dubas.pro",
     "php": [
         ">=7.2"
     ],
     "acceptableVersions": [
-        ">=6.0.0"
+        ">=6.0.9"
     ],
-    "version": "0.0.1",
+    "version": "0.0.2",
     "skipBackup": true,
     "checkVersionUrl": "https://devcrm.it",
-    "releaseDate": "2020-12-12"
+    "releaseDate": "2020-01-31"
 }

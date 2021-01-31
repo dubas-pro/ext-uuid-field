@@ -22,7 +22,6 @@
         "notNull": false,
         "unique": false
     },
-    "hookClassName": "\\Espo\\Modules\\DubasUuidField\\Core\\Utils\\FieldManager\\Hooks\\UuidType",
     "textFilter": true,
     "readOnly": true
 }
