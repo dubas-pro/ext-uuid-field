@@ -25,7 +25,6 @@ use PhpCsFixer\Fixer\ClassNotation\ClassAttributesSeparationFixer;
 use PhpCsFixer\Fixer\ClassNotation\ClassDefinitionFixer;
 use PhpCsFixer\Fixer\ClassNotation\OrderedClassElementsFixer;
 use PhpCsFixer\Fixer\Comment\HeaderCommentFixer;
-use PhpCsFixer\Fixer\ControlStructure\NoUnneededCurlyBracesFixer;
 use PhpCsFixer\Fixer\ControlStructure\NoUselessElseFixer;
 use PhpCsFixer\Fixer\ReturnNotation\NoUselessReturnFixer;
 use PhpCsFixer\Fixer\StringNotation\SingleQuoteFixer;
@@ -61,7 +60,6 @@ return static function (ContainerConfigurator $containerConfigurator): void {
             'multi_line_extends_each_single_line' => true,
             'single_item_single_line' => true,
         ]]);
-    $services->set(NoUnneededCurlyBracesFixer::class);
     $services->set(NoUselessElseFixer::class);
     $services->set(NoUselessReturnFixer::class);
     $services->set(SingleQuoteFixer::class);
