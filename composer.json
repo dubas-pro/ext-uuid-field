@@ -9,6 +9,9 @@
         "rector/rector": "^0.10.3"
     },
     "scripts": {
+        "post-install-cmd": [
+            "composer install -d src/files/application/Espo/Modules/DubasUuidField --no-dev --no-autoloader --ignore-platform-reqs"
+        ],
         "espo:rebuild": [
             "@espo:copy",
             "node build --rebuild"
