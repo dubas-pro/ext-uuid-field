@@ -27,7 +27,6 @@ use PhpCsFixer\Fixer\ClassNotation\OrderedClassElementsFixer;
 use PhpCsFixer\Fixer\Comment\HeaderCommentFixer;
 use PhpCsFixer\Fixer\ControlStructure\NoUnneededCurlyBracesFixer;
 use PhpCsFixer\Fixer\ControlStructure\NoUselessElseFixer;
-use PhpCsFixer\Fixer\Operator\ConcatSpaceFixer;
 use PhpCsFixer\Fixer\ReturnNotation\NoUselessReturnFixer;
 use PhpCsFixer\Fixer\StringNotation\SingleQuoteFixer;
 use PhpCsFixer\Fixer\Whitespace\MethodChainingIndentationFixer;
@@ -56,10 +55,6 @@ return static function (ContainerConfigurator $containerConfigurator): void {
 
     $services = $containerConfigurator->services();
     $services->set(MethodChainingIndentationFixer::class);
-    $services->set(ConcatSpaceFixer::class)
-        ->call('configure', [[
-            'spacing' => 'one',
-        ]]);
     $services->set(ClassAttributesSeparationFixer::class);
     $services->set(ClassDefinitionFixer::class)
         ->call('configure', [[
