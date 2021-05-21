@@ -27,19 +27,12 @@ class Uuid
 {
     public function getByVersion(string $version): string
     {
-        switch ($version) {
-            case '1':
-                $uuid = $this->uuid1();
-                break;
-            case '4':
-                $uuid = $this->uuid4();
-                break;
-            default:
-                $uuid = '';
-                break;
+        $methodName = 'uuid' . $version;
+        if (method_exists($this, $methodName)) {
+            return $this->$methodName();
         }
 
-        return $uuid;
+        return '';
     }
 
     public function uuid1(): string
