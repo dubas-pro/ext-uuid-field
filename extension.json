@@ -7,7 +7,7 @@
         ">=6.1.0"
     ],
     "php": [
-        ">=7.4"
+        ">=7.3"
     ],
     "checkVersionUrl": "https://devcrm.it",
     "releaseDate": "2021-01-31"

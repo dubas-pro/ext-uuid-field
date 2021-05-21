@@ -9,7 +9,7 @@ This repo is for comments only, but we do not give any warranty for the extensio
 
 ## Requirements
 1. EspoCRM in version equal or higher than 6.1.0.
-2. PHP 7.4+
+2. PHP 7.3+
 3. PHP extension [ext-json](https://www.php.net/manual/en/book.json.php)
 
 ### Performance

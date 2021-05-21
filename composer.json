@@ -2,7 +2,7 @@
     "name": "dubas/ext-dubas-uuid-field",
     "description": "",
     "require": {
-        "php": "^7.4"
+        "php": "^7.3"
     },
     "require-dev": {
         "symplify/easy-coding-standard": "^9.2",

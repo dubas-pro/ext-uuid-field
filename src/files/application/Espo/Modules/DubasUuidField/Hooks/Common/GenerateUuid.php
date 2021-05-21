@@ -29,9 +29,9 @@ class GenerateUuid implements Di\MetadataAware
 {
     use Di\MetadataSetter;
 
-    public static int $order = 9;
+    public static $order = 9;
 
-    protected Uuid $uuid;
+    protected $uuid;
 
     public function __construct(Uuid $uuid)
     {
