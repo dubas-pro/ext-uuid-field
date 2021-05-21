@@ -28,7 +28,7 @@ class Uuid
     public function getByVersion(string $version): string
     {
         $methodName = 'uuid' . $version;
-        if (method_exists($this, $methodName)) {
+        if (\method_exists($this, $methodName)) {
             return $this->$methodName();
         }
 
