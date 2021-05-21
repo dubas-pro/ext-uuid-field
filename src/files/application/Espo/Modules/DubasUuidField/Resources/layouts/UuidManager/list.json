@@ -1,0 +1,16 @@
+[
+    {
+        "name": "name",
+        "link": true
+    },
+    {
+        "name": "uuidVersion",
+        "width": 15
+    },
+    {
+        "name": "fieldName"
+    },
+    {
+        "name": "parent"
+    }
+]

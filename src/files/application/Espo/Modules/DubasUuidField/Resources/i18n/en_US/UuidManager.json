@@ -1,0 +1,16 @@
+{
+    "fields": {
+        "uuidVersion": "UUID Version",
+        "parent": "Parent",
+        "fieldName": "Field Name"
+    },
+    "options": {
+        "uuidVersion": {
+            "1": "Version 1: Time-based",
+            "2": "Version 2: DCE Security",
+            "3": "Version 3: Name-based (MD5)",
+            "4": "Version 4: Random",
+            "5": "Version 5: Named-based (SHA-1)"
+        }
+    }
+}

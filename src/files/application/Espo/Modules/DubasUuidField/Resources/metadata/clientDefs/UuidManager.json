@@ -1,0 +1,15 @@
+{
+    "controller": "controllers/record",
+    "createDisabled": true,
+    "editDisabled": true,
+    "exportDisabled": true,
+    "mergeDisabled": true,
+    "defaultSidePanelFieldLists": {
+        "detail": [
+            "createdAt"
+        ],
+        "detailSmall": [
+            "createdAt"
+        ]
+    }
+}

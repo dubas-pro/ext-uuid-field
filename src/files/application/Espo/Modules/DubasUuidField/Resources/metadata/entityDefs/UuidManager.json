@@ -1,0 +1,37 @@
+{
+    "fields": {
+        "name": {
+            "type": "varchar",
+            "required": true,
+            "maxLength": 36,
+            "index": true
+        },
+        "uuidVersion": {
+            "type": "enum"
+        },
+        "parent": {
+            "type": "linkParent"
+        },
+        "fieldName": {
+            "type": "varchar",
+            "maxLength": 100
+        },
+        "createdAt": {
+            "type": "datetime",
+            "readOnly": true
+        }
+    },
+    "links": {
+    },
+    "collection": {
+        "orderBy": "createdAt",
+        "order": "desc",
+        "textFilterFields": ["name", "uuidVersion"]
+    },
+    "indexes": {
+        "createdAt": {
+            "type": "index",
+            "columns": ["createdAt"]
+        }
+    }
+}

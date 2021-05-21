@@ -25,8 +25,11 @@ use Espo\Core\Di;
 use Espo\Modules\DubasUuidField\Core\Helpers\Uuid;
 use Espo\ORM\Entity;
 
-class GenerateUuid implements Di\MetadataAware
+class GenerateUuid implements
+    Di\EntityManagerAware,
+    Di\MetadataAware
 {
+    use Di\EntityManagerSetter;
     use Di\MetadataSetter;
 
     public static $order = 9;
@@ -55,8 +58,18 @@ class GenerateUuid implements Di\MetadataAware
                 $uuidVersion = $this->metadata->get(['entityDefs', $entity->getEntityType(), 'fields', $fieldName, 'uuidVersion'], '1');
 
                 $uuid = $this->uuid->getByVersion($uuidVersion);
-                if ('' !== $uuid) {
+                if ($uuid) {
                     $entity->set($fieldName, $uuid);
+
+                    $uuidManager = $this->entityManager->getEntity('UuidManager');
+                    $uuidManager->set([
+                        'name' => $uuid,
+                        'uuidVersion' => $uuidVersion,
+                        'fieldName' => $fieldName,
+                        'parentId' => $entity->id,
+                        'parentType' => $entity->getEntityType(),
+                    ]);
+                    $this->entityManager->saveEntity($uuidManager);
                 }
             }
         }

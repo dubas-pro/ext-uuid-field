@@ -1,0 +1,8 @@
+{
+    "scopeNames": {
+        "UuidManager": "UUID Manager"
+    },
+    "scopeNamesPlural": {
+        "UuidManager": "UUIDs Manager"
+    }
+}

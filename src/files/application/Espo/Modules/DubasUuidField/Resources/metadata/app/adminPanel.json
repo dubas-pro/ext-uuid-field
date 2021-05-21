@@ -1,0 +1,13 @@
+{
+    "data": {
+        "itemList": [
+            "__APPEND__",
+            {
+                "url": "#UuidManager",
+                "label": "UUIDs",
+                "iconClass": "fas fa-fingerprint",
+                "description": "uuidManager"
+            }
+        ]
+    }
+}
