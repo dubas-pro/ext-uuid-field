@@ -25,22 +25,13 @@ use Ramsey\Uuid\Uuid as RamseyUuid;
 
 class Uuid
 {
-    private \Espo\Core\Container $container;
-
-    public function __construct(\Espo\Core\Container $container)
+    public function getByVersion(string $version): string
     {
-        $this->container = $container;
-    }
-
-    public function getByVersion($version)
-    {
-        $version = (int) $version;
-
         switch ($version) {
-            case 1:
+            case '1':
                 $uuid = $this->uuid1();
                 break;
-            case 4:
+            case '4':
                 $uuid = $this->uuid4();
                 break;
             default:
@@ -51,22 +42,17 @@ class Uuid
         return $uuid;
     }
 
-    public function uuid1()
+    public function uuid1(): string
     {
         $uuid = RamseyUuid::uuid1();
 
         return $uuid->toString();
     }
 
-    public function uuid4()
+    public function uuid4(): string
     {
         $uuid = RamseyUuid::uuid4();
 
         return $uuid->toString();
-    }
-
-    protected function getContainer()
-    {
-        return $this->container;
     }
 }

@@ -1,6 +1,8 @@
 {
-    "psr-0": {
-        "Ramsey": "application/Espo/Modules/DubasUuidField/vendor/ramsey/uuid/src"
-    },
-    "Ramsey": "application/Espo/Modules/DubasUuidField/vendor/ramsey/uuid/src"
+    "psr-4": {
+        "Symfony\\Polyfill\\Ctype\\": "application/Espo/Modules/DubasUuidField/vendor/symfony/polyfill-ctype",
+        "Ramsey\\Uuid\\": "application/Espo/Modules/DubasUuidField/vendor/ramsey/uuid/src",
+        "Ramsey\\Collection\\": "application/Espo/Modules/DubasUuidField/vendor/ramsey/collection/src",
+        "Brick\\Math\\": "application/Espo/Modules/DubasUuidField/vendor/brick/math/src"
+    }
 }

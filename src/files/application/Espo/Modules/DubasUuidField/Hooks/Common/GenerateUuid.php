@@ -22,15 +22,25 @@
 namespace Espo\Modules\DubasUuidField\Hooks\Common;
 
 use Espo\ORM\Entity;
+use Espo\Core\Di;
+use Espo\Modules\DubasUuidField\Core\Helpers\Uuid;
 
-class GenerateUuid extends \Espo\Core\Hooks\Base
+class GenerateUuid implements Di\MetadataAware
 {
+    use Di\MetadataSetter;
+
     public static $order = 9;
+
+    protected $uuid;
+
+    public function __construct(Uuid $uuid)
+    {
+        $this->uuid = $uuid;
+    }
 
     public function beforeSave(Entity $entity, array $options = []): void
     {
-        $uuidHelper = $this->getContainer()->get('uuidHelper');
-        $fieldDefs = $this->getMetadata()->get(['entityDefs', $entity->getEntityType(), 'fields'], []);
+        $fieldDefs = $this->metadata->get(['entityDefs', $entity->getEntityType(), 'fields'], []);
 
         foreach ($fieldDefs as $fieldName => $defs) {
             if (isset($defs['type']) && $defs['type'] === 'uuid') {
@@ -42,23 +52,13 @@ class GenerateUuid extends \Espo\Core\Hooks\Base
                     continue;
                 }
 
-                $uuidVersion = $this->getMetadata()->get(['entityDefs', $entity->getEntityType(), 'fields', $fieldName, 'uuidVersion'], '1');
+                $uuidVersion = $this->metadata->get(['entityDefs', $entity->getEntityType(), 'fields', $fieldName, 'uuidVersion'], '1');
 
-                $uuid = $uuidHelper->getByVersion($uuidVersion);
+                $uuid = $this->uuid->getByVersion($uuidVersion);
                 if ('' !== $uuid) {
                     $entity->set($fieldName, $uuid);
                 }
             }
         }
-    }
-
-    protected function init(): void
-    {
-        $this->addDependency('metadata');
-    }
-
-    protected function getMetadata()
-    {
-        return $this->getInjection('metadata');
     }
 }
