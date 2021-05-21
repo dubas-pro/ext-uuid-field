@@ -8,7 +8,7 @@
                 "1",
                 "4"
             ],
-            "translation": "FieldManager.options.uuidVersion"
+            "translation": "UuidManager.options.uuidVersion"
         }
     ],
     "view": "dubas-uuid-field:views/fields/uuid",
