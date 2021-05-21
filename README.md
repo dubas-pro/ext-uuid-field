@@ -1,15 +1,15 @@
 # Dubas UUID field for EspoCRM
 ![Screenshot of Dubas UUID field for EspoCRM](https://devcrm.it/files/2020-12-13_01-20-31_6df171-uF-779948_65b07ac0379e20.png)
-Free extension which will add new field type to your EspoCRM and let you to create new field which will generate UUID for every single record. 
+Free extension which will add new field type to your EspoCRM and let you to create new field which will generate UUID for every single record.
 Extension created by devcrm.it to EspoCRM. Extension is available for download as an extension to EspoCRM at [https://devcrm.it/uuid](https://devcrm.it/uuid).
 
-Our extension support two versions of UUID. The [first(time-based)](https://uuid.ramsey.dev/en/latest/rfc4122/version1.html) and [fourth(random)](https://uuid.ramsey.dev/en/latest/rfc4122/version4.html). We've integrated [ramsey/uuid composer package](https://github.com/ramsey/uuid) to generate UUID's in proper way. 
+Our extension support two versions of UUID. The [first(time-based)](https://uuid.ramsey.dev/en/latest/rfc4122/version1.html) and [fourth(random)](https://uuid.ramsey.dev/en/latest/rfc4122/version4.html). We've integrated [ramsey/uuid composer package](https://github.com/ramsey/uuid) to generate UUID's in proper way.
 
 This repo is for comments only, but we do not give any warranty for the extension or installer. You install this extension on your own responsibility. We do not provide additional free support.
 
 ## Requirements
-1. EspoCRM in version higher than 6.0.0.
-2. PHP 7.2+
+1. EspoCRM in version equal or higher than 6.1.0.
+2. PHP 7.4+
 3. PHP extension [ext-json](https://www.php.net/manual/en/book.json.php)
 
 ### Performance
