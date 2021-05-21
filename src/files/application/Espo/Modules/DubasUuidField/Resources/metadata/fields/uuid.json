@@ -6,10 +6,7 @@
             "default": "4",
             "options": [
                 "1",
-                "2",
-                "3",
-                "4",
-                "5"
+                "4"
             ],
             "translation": "FieldManager.options.uuidVersion"
         }
