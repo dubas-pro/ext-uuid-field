@@ -1,0 +1,6 @@
+{
+    "psr-0": {
+        "Ramsey": "application/Espo/Modules/DubasUuidField/vendor/ramsey/uuid/src"
+    },
+    "Ramsey": "application/Espo/Modules/DubasUuidField/vendor/ramsey/uuid/src"
+}

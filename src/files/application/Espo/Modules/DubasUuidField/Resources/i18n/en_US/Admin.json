@@ -1,0 +1,8 @@
+{
+    "fields": {
+        "uuidVersion": "UUID Version"
+    },
+    "fieldTypes": {
+        "uuid": "DUBAS UUID"
+    }
+}
