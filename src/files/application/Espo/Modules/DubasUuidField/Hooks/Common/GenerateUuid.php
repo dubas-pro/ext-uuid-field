@@ -21,9 +21,9 @@
 
 namespace Espo\Modules\DubasUuidField\Hooks\Common;
 
-use Espo\ORM\Entity;
 use Espo\Core\Di;
 use Espo\Modules\DubasUuidField\Core\Helpers\Uuid;
+use Espo\ORM\Entity;
 
 class GenerateUuid implements Di\MetadataAware
 {
