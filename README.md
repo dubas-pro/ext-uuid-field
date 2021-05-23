@@ -1,8 +1,8 @@
 # Dubas UUID Field for EspoCRM
 
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/dubas-pro/ext-uuid-field)](https://devcrm.it/uuid)
-![EspoCRM](https://img.shields.io/badge/espocrm-%3E%3D6.1.0-blue)
-![PHP](https://img.shields.io/badge/php-%3E%3D7.3-blue)
+[![EspoCRM](https://img.shields.io/badge/espocrm-%3E%3D6.1.0-blue)](#dubas-uuid-field-for-espocrm)
+[![PHP](https://img.shields.io/badge/php-%3E%3D7.3-blue)](#dubas-uuid-field-for-espocrm)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 The EspoCRM extension for generating universally unique identifiers (UUIDs).
@@ -14,7 +14,7 @@ The EspoCRM extension for generating universally unique identifiers (UUIDs).
 
 ## Screenshot
 
-![Screenshot of Dubas UUID field for EspoCRM](https://devcrm.it/files/2020-12-13_01-20-31_6df171-uF-779948_65b07ac0379e20.png)
+[![Screenshot of Dubas UUID field for EspoCRM](https://devcrm.it/files/2020-12-13_01-20-31_6df171-uF-779948_65b07ac0379e20.png)](#screenshot)
 
 ## Requirements
 
