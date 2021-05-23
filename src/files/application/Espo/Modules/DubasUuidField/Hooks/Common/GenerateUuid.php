@@ -23,7 +23,6 @@
 namespace Espo\Modules\DubasUuidField\Hooks\Common;
 
 use Espo\Core\Di;
-use Espo\Modules\DubasUuidField\Core\Helpers\Uuid;
 use Espo\ORM\Entity;
 
 class GenerateUuid implements
@@ -35,17 +34,9 @@ class GenerateUuid implements
 
     public static $order = 9;
 
-    protected $uuid;
-
-    public function __construct(Uuid $uuid)
-    {
-        $this->uuid = $uuid;
-    }
-
     public function beforeSave(Entity $entity, array $options = []): void
     {
         $fieldDefs = $this->metadata->get(['entityDefs', $entity->getEntityType(), 'fields'], []);
-
         foreach ($fieldDefs as $fieldName => $defs) {
             if (isset($defs['type']) && $defs['type'] === 'uuid') {
                 if (!empty($options['import']) && $entity->has($fieldName)) {
@@ -56,22 +47,7 @@ class GenerateUuid implements
                     continue;
                 }
 
-                $uuidVersion = $this->metadata->get(['entityDefs', $entity->getEntityType(), 'fields', $fieldName, 'uuidVersion'], '1');
-
-                $uuid = $this->uuid->getByVersion($uuidVersion);
-                if ($uuid) {
-                    $entity->set($fieldName, $uuid);
-
-                    $uuidManager = $this->entityManager->getEntity('UuidManager');
-                    $uuidManager->set([
-                        'name' => $uuid,
-                        'uuidVersion' => $uuidVersion,
-                        'fieldName' => $fieldName,
-                        'parentId' => $entity->id,
-                        'parentType' => $entity->getEntityType(),
-                    ]);
-                    $this->entityManager->saveEntity($uuidManager);
-                }
+                $this->entityManager->getRepository('UuidManager')->storeEntityUuid($entity, $fieldName, true);
             }
         }
     }

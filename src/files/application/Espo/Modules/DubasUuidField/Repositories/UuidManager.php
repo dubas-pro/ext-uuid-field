@@ -22,9 +22,56 @@
 
 namespace Espo\Modules\DubasUuidField\Repositories;
 
-class UuidManager extends \Espo\Core\Repositories\Database
+use Espo\Modules\DubasUuidField\Core\Di;
+use Espo\ORM\Entity;
+
+class UuidManager extends \Espo\Core\Repositories\Database implements Di\UuidAware
 {
+    use Di\UuidSetter;
+
     protected $processFieldsAfterSaveDisabled = true;
 
     protected $processFieldsAfterRemoveDisabled = true;
+
+    public function storeEntityUuid(Entity $parent, string $fieldName, bool $populateMode = false): void
+    {
+        $uuidVersion = $this->metadata->get(['entityDefs', $parent->getEntityType(), 'fields', $fieldName, 'uuidVersion'], '1');
+
+        $uuidManager = $this
+            ->select(['name'])
+            ->where([
+                'fieldName' => $fieldName,
+                'parentType' => $parent->getEntityType(),
+                'parentId' => $parent->id,
+            ])
+            ->findOne();
+
+        $uuid = $this->uuid->generateByVersion($uuidVersion);
+        if ($parent->hasAttribute($fieldName)) {
+            $uuid = $parent->get($fieldName) ?? $uuid;
+        }
+
+        if ($uuidManager === null) {
+            $uuidManager = $this->getNew();
+            $uuidManager->set([
+                'name' => $uuid,
+                'parentId' => $parent->id,
+                'parentType' => $parent->getEntityType(),
+                'fieldName' => $fieldName,
+                'uuidVersion' => $uuidVersion,
+            ]);
+
+            $this->save($uuidManager, [
+                'silent' => true,
+                'skipHooks' => true,
+            ]);
+        }
+
+        if ($populateMode && $parent->hasAttribute($fieldName)) {
+            if ($parent->get($fieldName) !== $uuidManager->get('name')) {
+                $parent->set($fieldName, $uuidManager->get('name'));
+                $this->getEntityManager()->saveEntity($parent);
+            }
+        }
+    }
 }

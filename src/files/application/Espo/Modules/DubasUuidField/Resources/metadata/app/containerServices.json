@@ -1,0 +1,5 @@
+{
+    "uuid": {
+        "className": "Espo\\Modules\\DubasUuidField\\Core\\Helpers\\Uuid"
+    }
+}

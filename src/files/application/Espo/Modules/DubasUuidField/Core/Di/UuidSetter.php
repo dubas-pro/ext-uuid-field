@@ -20,33 +20,16 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace Espo\Modules\DubasUuidField\Core\Helpers;
+namespace Espo\Modules\DubasUuidField\Core\Di;
 
-use Ramsey\Uuid\Uuid as RamseyUuid;
+use Espo\Modules\DubasUuidField\Core\Helpers\Uuid;
 
-class Uuid
+trait UuidSetter
 {
-    public function generateByVersion(string $version): string
+    protected $uuid;
+
+    public function setUuid(Uuid $uuid): void
     {
-        $methodName = 'uuid' . $version;
-        if (\method_exists($this, $methodName)) {
-            return $this->$methodName();
-        }
-
-        return '';
-    }
-
-    public function uuid1(): string
-    {
-        $uuid = RamseyUuid::uuid1();
-
-        return $uuid->toString();
-    }
-
-    public function uuid4(): string
-    {
-        $uuid = RamseyUuid::uuid4();
-
-        return $uuid->toString();
+        $this->uuid = $uuid;
     }
 }

@@ -24,4 +24,65 @@ namespace Espo\Modules\DubasUuidField\Services;
 
 class UuidManager extends \Espo\Services\Record
 {
+    protected $ignoreScopeList = [
+        'UuidManager',
+    ];
+
+    public function storeEntityUuids(array $scopeList = [], bool $populateMode = false): void
+    {
+        $scopesFieldList = $this->getHavingUuidEntityTypeList($scopeList);
+        foreach ($scopesFieldList as $scope => $fieldDefs) {
+            $query = $this->entityManager->getQueryBuilder()
+                ->select()
+                ->from($scope)
+                ->select(array_merge(['id'], array_keys($fieldDefs)))
+                ->build();
+
+            $sth = $this->entityManager->getQueryExecutor()->execute($query);
+            while ($row = $sth->fetch(\PDO::FETCH_ASSOC)) {
+                foreach ($row as $k => $v) {
+                    if ($k === 'id') {
+                        continue;
+                    }
+                    if (empty($v) && !$populateMode) {
+                        continue;
+                    }
+
+                    $parent = $this->getEntityManager()->getEntity($scope, $row['id']);
+                    if ($parent) {
+                        $this->getEntityManager()->getRepository('UuidManager')->storeEntityUuid($parent, $k, $populateMode);
+                    }
+                }
+            }
+        }
+    }
+
+    protected function getHavingUuidEntityTypeList(array $scopeList = []): array
+    {
+        if (empty($scopeList)) {
+            foreach ($this->metadata->get('scopes') as $scope => $data) {
+                $isEntity = $data['entity'] ?? false;
+                if (!$isEntity) {
+                    continue;
+                }
+                if (in_array($scope, $this->ignoreScopeList, true)) {
+                    continue;
+                }
+
+                $scopeList[] = $scope;
+            }
+        }
+
+        $fieldList = [];
+        foreach ($scopeList as $scope) {
+            $fieldDefs = $this->metadata->get(['entityDefs', $scope, 'fields']);
+            foreach ($fieldDefs as $field => $fieldParams) {
+                if ($fieldParams['type'] === 'uuid') {
+                    $fieldList[$scope][$field] = $fieldParams;
+                }
+            }
+        }
+
+        return $fieldList;
+    }
 }
