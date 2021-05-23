@@ -54,7 +54,11 @@ class UuidManager extends \Espo\Services\Record
 
                         if ($populateMode && $parent->hasAttribute($k)) {
                             $parent->set($k, $uuidManager->get('name'));
-                            $this->getEntityManager()->saveEntity($parent);
+                            $this->getEntityManager()->saveEntity($parent, [
+                                'skipAll' => true,
+                                'silent' => true,
+                                'skipHooks' => true,
+                            ]);
                         }
                     }
                 }
