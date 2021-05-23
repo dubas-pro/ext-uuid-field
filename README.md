@@ -5,7 +5,7 @@
 [![PHP](https://img.shields.io/badge/php-%3E%3D7.3-blue)](#dubas-uuid-field-for-espocrm)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
-The EspoCRM extension for generating universally unique identifiers (UUIDs).
+The EspoCRM extension for generating universally unique identifiers (UUIDs). It uses [ramsey/uuid](https://github.com/ramsey/uuid) to generate UUIDs.
 
 ## Supported UUID versions
 
@@ -23,7 +23,7 @@ The EspoCRM extension for generating universally unique identifiers (UUIDs).
 
 ### Optional PHP extensions
 
-While not required, these extensions improve the performance of ramsey/uuid.
+While not required, these extensions improve the performance of [ramsey/uuid](https://github.com/ramsey/uuid).
 
 - [ext-ctype](https://www.php.net/manual/en/book.ctype.php)
 - [ext-gmp](https://www.php.net/manual/en/book.gmp.php)
