@@ -33,7 +33,7 @@ class UuidManager extends \Espo\Core\Repositories\Database implements Di\UuidAwa
 
     protected $processFieldsAfterRemoveDisabled = true;
 
-    public function storeEntityUuid(Entity $parent, string $fieldName, bool $populateMode = false): void
+    public function storeEntityUuid(Entity $parent, string $fieldName): Entity
     {
         $uuidVersion = $this->metadata->get(['entityDefs', $parent->getEntityType(), 'fields', $fieldName, 'uuidVersion'], '1');
 
@@ -67,11 +67,6 @@ class UuidManager extends \Espo\Core\Repositories\Database implements Di\UuidAwa
             ]);
         }
 
-        if ($populateMode && $parent->hasAttribute($fieldName)) {
-            if ($parent->get($fieldName) !== $uuidManager->get('name')) {
-                $parent->set($fieldName, $uuidManager->get('name'));
-                $this->getEntityManager()->saveEntity($parent);
-            }
-        }
+        return $uuidManager;
     }
 }

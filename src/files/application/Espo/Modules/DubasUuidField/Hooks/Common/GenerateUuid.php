@@ -47,7 +47,9 @@ class GenerateUuid implements
                     continue;
                 }
 
-                $this->entityManager->getRepository('UuidManager')->storeEntityUuid($entity, $fieldName, true);
+                $uuidManager = $this->entityManager->getRepository('UuidManager')->storeEntityUuid($entity, $fieldName);
+
+                $entity->set($fieldName, $uuidManager->get('name'));
             }
         }
     }

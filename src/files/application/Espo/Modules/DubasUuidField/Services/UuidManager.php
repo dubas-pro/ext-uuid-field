@@ -50,7 +50,12 @@ class UuidManager extends \Espo\Services\Record
 
                     $parent = $this->getEntityManager()->getEntity($scope, $row['id']);
                     if ($parent) {
-                        $this->getEntityManager()->getRepository('UuidManager')->storeEntityUuid($parent, $k, $populateMode);
+                        $uuidManager = $this->getEntityManager()->getRepository('UuidManager')->storeEntityUuid($parent, $k);
+
+                        if ($populateMode && $parent->hasAttribute($k)) {
+                            $parent->set($k, $uuidManager->get('name'));
+                            $this->getEntityManager()->saveEntity($parent);
+                        }
                     }
                 }
             }
