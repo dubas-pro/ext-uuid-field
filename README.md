@@ -1,35 +1,62 @@
-# Dubas UUID field for EspoCRM
+# Dubas UUID Field for EspoCRM
+
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/dubas-pro/ext-uuid-field)](https://devcrm.it/uuid)
+![EspoCRM](https://img.shields.io/badge/espocrm-%3E%3D6.1.0-blue)
+![PHP](https://img.shields.io/badge/php-%3E%3D7.3-blue)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+
+The EspoCRM extension for generating universally unique identifiers (UUIDs).
+
+## Supported UUID versions
+
+- [Version 1: Time-based](https://uuid.ramsey.dev/en/latest/rfc4122/version1.html#rfc4122-version1)
+- [Version 4: Random](https://uuid.ramsey.dev/en/latest/rfc4122/version4.html#rfc4122-version4)
+
+## Screenshot
+
 ![Screenshot of Dubas UUID field for EspoCRM](https://devcrm.it/files/2020-12-13_01-20-31_6df171-uF-779948_65b07ac0379e20.png)
-Free extension which will add new field type to your EspoCRM and let you to create new field which will generate UUID for every single record.
-Extension created by devcrm.it to EspoCRM. Extension is available for download as an extension to EspoCRM at [https://devcrm.it/uuid](https://devcrm.it/uuid).
-
-Our extension support two versions of UUID. The [first(time-based)](https://uuid.ramsey.dev/en/latest/rfc4122/version1.html) and [fourth(random)](https://uuid.ramsey.dev/en/latest/rfc4122/version4.html). We've integrated [ramsey/uuid composer package](https://github.com/ramsey/uuid) to generate UUID's in proper way.
-
-This repo is for comments only, but we do not give any warranty for the extension or installer. You install this extension on your own responsibility. We do not provide additional free support.
 
 ## Requirements
-1. EspoCRM in version equal or higher than 6.1.0.
-2. PHP 7.3+
-3. PHP extension [ext-json](https://www.php.net/manual/en/book.json.php)
 
-### Performance
-[ramsey/uuid recommends](https://github.com/ramsey/uuid) installing/enabling the following extensions. While not required, these extensions improve the performance of ramsey/uuid.
+- EspoCRM 6.1.0 or later;
+- PHP 7.3 or later;
+
+### Optional PHP extensions
+
+While not required, these extensions improve the performance of ramsey/uuid.
+
 - [ext-ctype](https://www.php.net/manual/en/book.ctype.php)
 - [ext-gmp](https://www.php.net/manual/en/book.gmp.php)
 - [ext-bcmath](https://www.php.net/manual/en/book.bc.php)
 
 ## Getting started
-1. Open our website [https://devcrm.it/uuid](https://devcrm.it/uuid) and download installer;
-2. Login to your EspoCRM as admin;
-3. Go to admin section and open extensions page;
-4. Choose installer from you computer and start installation process;
-5. Go to Entity Manager and choose target entity in which you want to generate UUID's;
-6. Create new field with type "DUBAS UUID", choose name of field and type of UUID
 
-## Examples
-1. We're using this field to create random string which will be unique in [SalesPack](https://www.espocrm.com/extensions/sales-pack/) extension. Thanks to that our customers can download invoices and we're sure that only authorized users have access to this data.
-2. We're using UUID's in our attachments extension. EntryPoint require not only token but also unique UUID and based on that information decide is user should have access to specific attachment.
+### Installing an extension
+
+You can download the extension from https://devcrm.it/uuid as a zip file.
+
+Instructions for installing EspoCRM Extensions can be found in the [official documentation](https://docs.espocrm.com/administration/extensions/#installing).
+
+### Creating UUID field
+
+Use Entity Manager in EspoCRM Administration panel to create new field for given entity types. For more information please consult the [official documentation](https://docs.espocrm.com/administration/entity-manager/).
+
+## Bugs
+
+If you find an issue, let us know [here](https://github.com/dubas-pro/ext-uuid-field/issues/new)!
 
 ## Support
-This extension is shared without any support. Extension is available as it is.
-If you want to order some service, all information about us you can find on our website [https://devcrm.it/](https://devcrm.it/).
+
+This repository is not suitable for support. Please don't use our issue tracker for support requests, but for core issues only.
+
+**Need help?** Please write us an email at <a href="mailto:contact@dubas.pro">contact@dubas.pro</a> or visit [https://devcrm.it](https://devcrm.it).
+
+Support requests in issues on this repository will be closed on sight.
+
+## License
+
+DUBAS S.C. - contact@dubas.pro
+
+Copyright (C) 2021 Arkadiy Asuratov, Emil Dubielecki
+
+Dubas UUID Field extension for EspoCRM is published under the [GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.html).
