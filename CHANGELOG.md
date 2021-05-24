@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.0.0] - 2021-05-24
 
 ### Added
-- UUIDs Manager to keep track of all UUIDs stored in the system.
+- UUIDs Manager to keep track of all UUIDs stored in the system. Available from Administration > Data > UUIDs.
 - Helper console command for indexing UUIDs and generating UUIDs for newly created fields.
   ```
   php command.php uuid-index [--scope=SCOPE|-all] [--populate-mode]
@@ -24,6 +24,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Minimum EspoCRM requirement to 6.1.0.
 - Minimum PHP requirement to 7.3.
 - Updated README file.
+- Changed field type name from "Dubas UUID" to just "UUID" in Entity Manager.
 
 ### Fixed
 - Incorrect (propriety!) license header in source files. GPL-licensed components is also free and is licensed under the GPL.
