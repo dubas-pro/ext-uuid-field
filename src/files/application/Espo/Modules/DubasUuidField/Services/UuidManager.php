@@ -22,6 +22,8 @@
 
 namespace Espo\Modules\DubasUuidField\Services;
 
+use StdClass;
+
 class UuidManager extends \Espo\Services\Record
 {
     protected $ignoreScopeList = [
@@ -64,6 +66,14 @@ class UuidManager extends \Espo\Services\Record
                 }
             }
         }
+    }
+
+    public function jobRunUuidIndex(StdClass $data): void
+    {
+        $scopeList = $data->scopeList ?? [];
+        $populateMode = $data->populateMode ?? false;
+
+        $this->storeEntityUuids($scopeList, $populateMode);
     }
 
     protected function getHavingUuidEntityTypeList(array $scopeList = []): array

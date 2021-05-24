@@ -27,6 +27,19 @@ class AfterInstall
     public function run($container): void
     {
         $this->container = $container;
+        $entityManager = $this->container->get('entityManager');
+
+        $job = $entityManager->getEntity('Job');
+        $job->set([
+            'serviceName' => 'UuidManager',
+            'methodName' => 'jobRunUuidIndex',
+            'data' => [
+                'scopeList' => [],
+                'populateMode' => false,
+            ],
+            'queue' => 'q1',
+        ]);
+        $entityManager->saveEntity($job);
     }
 
     protected function clearCache(): void
