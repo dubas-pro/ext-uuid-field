@@ -20,7 +20,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace Espo\Modules\DubasUuidField\Core\Helpers;
+namespace Espo\Modules\DubasUuidField\Core\Utils;
 
 use Ramsey\Uuid\Uuid as RamseyUuid;
 

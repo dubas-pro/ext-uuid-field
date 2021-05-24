@@ -22,7 +22,7 @@
 
 namespace Espo\Modules\DubasUuidField\Core\Di;
 
-use Espo\Modules\DubasUuidField\Core\Helpers\Uuid;
+use Espo\Modules\DubasUuidField\Core\Utils\Uuid;
 
 interface UuidAware
 {
