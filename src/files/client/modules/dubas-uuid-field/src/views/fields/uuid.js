@@ -1,8 +1,8 @@
-/*********************************************************************************************
+/************************************************************************
 This file is part of the Dubas UUID Field - EspoCRM extension.
 
 DUBAS S.C. - contact@dubas.pro
-Copyright (C) 2021 Arkadiy Asuratov, Emil Dubielecki
+Copyright (C) 2021-2022 Arkadiy Asuratov, Emil Dubielecki
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -16,9 +16,9 @@ GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
-*********************************************************************************************/
+************************************************************************/
 
-define('dubas-uuid-field:views/fields/uuid', 'views/fields/base', function (Dep) {
+define('dubas-uuid-field:views/fields/uuid', 'views/fields/base', (Dep) => {
 
     return Dep.extend({
 
@@ -33,5 +33,7 @@ define('dubas-uuid-field:views/fields/uuid', 'views/fields/base', function (Dep)
         fetch: function () {
             return {};
         },
+
     });
+
 });
