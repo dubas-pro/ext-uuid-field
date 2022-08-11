@@ -21,8 +21,7 @@
             "readOnly": true
         }
     },
-    "links": {
-    },
+    "links": {},
     "collection": {
         "orderBy": "createdAt",
         "order": "desc",

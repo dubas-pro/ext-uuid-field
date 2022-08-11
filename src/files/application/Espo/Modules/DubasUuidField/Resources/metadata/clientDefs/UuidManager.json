@@ -5,11 +5,7 @@
     "exportDisabled": true,
     "mergeDisabled": true,
     "defaultSidePanelFieldLists": {
-        "detail": [
-            "createdAt"
-        ],
-        "detailSmall": [
-            "createdAt"
-        ]
+        "detail": ["createdAt"],
+        "detailSmall": ["createdAt"]
     }
 }
