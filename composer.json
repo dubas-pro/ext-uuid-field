@@ -1,46 +1,14 @@
 {
-    "name": "dubas/ext-dubas-uuid-field",
-    "description": "",
-    "require": {
-        "php": "^7.3"
-    },
     "require-dev": {
-        "symplify/easy-coding-standard": "^9.2",
-        "rector/rector": "^0.10.3"
+        "php": "^7.4|^8.0",
+        "phpstan/phpstan": "^1.7",
+        "rector/rector": "^0.13",
+        "symplify/easy-coding-standard": "^10.2"
     },
-    "scripts": {
-        "post-install-cmd": [
-            "composer install -d src/files/application/Espo/Modules/DubasUuidField --no-dev --no-autoloader --ignore-platform-reqs"
-        ],
-        "espo:rebuild": [
-            "@espo:copy",
-            "node build --rebuild"
-        ],
-        "espo:copy": "node build --copy",
-        "espo:clear-cache": "rm -rf site/data/cache/*",
-        "espo:tests-prepare": [
-            "@espo:copy",
-            "cd site && grunt test"
-        ],
-        "espo:tests-unit": [
-            "@espo:copy",
-            "cd site && vendor/bin/phpunit tests/unit/Espo/Modules/DubasUuidField"
-        ],
-        "espo:tests-integration": [
-            "@espo:copy",
-            "cd site && vendor/bin/phpunit tests/integration/Espo/Modules/DubasUuidField"
-        ],
-        "espo:merge-configs": "cd php_scripts && php merge_configs.php",
-        "ecs": [
-            "vendor/bin/ecs check --fix"
-        ],
-        "rector": [
-            "vendor/bin/rector process"
-        ]
-    },
-    "extra": {
-        "scripts-description": {
-            "ecs": "Fix coding standards warnings/errors automatically with PHP Easy Coding Standard"
+    "config": {
+        "sort-packages": true,
+        "platform": {
+            "php": "7.4"
         }
     }
 }

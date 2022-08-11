@@ -1,0 +1,70 @@
+---
+version: '3'
+
+################################################################################
+# SERVICES
+################################################################################
+services:
+  # ------------------------------------------------------------
+  # phpMyAdmin
+  # ------------------------------------------------------------
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: phpmyadmin
+    restart: always
+
+    environment:
+      - PMA_HOST=mysql
+      - PMA_USER=root
+      - PMA_PASSWORD=
+
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.phpmyadmin.rule=Host(`pma.localhost`)
+      - traefik.http.routers.phpmyadmin.entrypoints=http
+
+    depends_on:
+      - mysql
+
+  # -----------------------------------------------------------------------------------------------
+  # Ngrok
+  # -----------------------------------------------------------------------------------------------
+  ngrok:
+    image: wernight/ngrok:latest
+    container_name: ngrok
+
+    environment:
+      - NGROK_PORT=httpd:80
+      - NGROK_REGION=${NGROK_REGION:-eu}
+      - NGROK_AUTH=${NGROK_AUTH:-}
+
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.ngrok.rule=Host(`ngrok.localhost`)
+      - traefik.http.routers.ngrok.entrypoints=http
+      - traefik.http.services.ngrok.loadbalancer.server.port=4040
+
+  # ------------------------------------------------------------
+  # Fake SMTP server
+  # ------------------------------------------------------------
+  smtp4dev:
+    image: rnwood/smtp4dev:v3
+    container_name: smtp4dev
+    hostname: smtp4dev
+    restart: always
+
+    environment:
+      - ServerOptions__HostName=smtp4dev
+
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.smtp4dev.rule=Host(`mail.localhost`)
+      - traefik.http.routers.smtp4dev.entrypoints=http
+      - traefik.http.routers.smtp4dev.service=smtp4dev-service
+      - traefik.http.services.smtp4dev-service.loadbalancer.server.port=80
+
+    volumes:
+      - smtp4dev-data:/smtp4dev
+
+volumes:
+  smtp4dev-data: null

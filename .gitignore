@@ -13,9 +13,35 @@ project.properties
 *.swp
 
 build/
+html/
 site/
-vendor/
+!src/**/site/
 tests/integration/config.php
-node_modules
+.env
 config.json
 config.php
+/extensions/
+
+# Package Managers
+.eslintcache
+.pnpm-store/
+node_modules/
+vendor/
+
+# Docker
+docker-compose.override.yml
+
+# Extension Directory
+src/**/client/**/lib/*
+
+# +----------------------------+
+# |    Keep .gitkeep files     |
+# +----------------------------+-------------------------------+
+# | To keep an empty directory, add a .gitkeep file to it      |
+# | and ignore the directory with a wildcard:                  |
+# |                                                            |
+# |     /path/to/dir/*                                         |
+# |                                                            |
+# | this will ignore the content but not the director itself.  |
+# +------------------------------------------------------------+
+!/**/.gitkeep

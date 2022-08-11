@@ -5,19 +5,20 @@
     },
     "database": {
         "driver": "pdo_mysql",
-        "host": "localhost",
+        "host": "mysql",
         "port": "",
         "charset": "utf8mb4",
-        "dbname": "ext-uuid-field",
+        "dbname": "ext-dubas-uuid-field",
         "user": "root",
         "password": ""
     },
     "install": {
         "language": "en_US",
-        "defaultOwner": "www-data",
-        "defaultGroup": "www-data",
-        "siteUrl": "http://localhost/ext-uuid-field/site",
+        "defaultOwner": "",
+        "defaultGroup": "",
+        "siteUrl": "http://localhost:8080",
         "adminUsername": "admin",
         "adminPassword": "1"
-    }
+    },
+    "customFixtures": "tests/fixtures/init.php"
 }

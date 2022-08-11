@@ -2,12 +2,16 @@
     "module": "DubasUuidField",
     "name": "Dubas UUID Field",
     "description": "Add field for generating universally unique identifiers (UUIDs).",
-    "author": "DUBAS - contact@dubas.pro",
+    "author": "DUBAS S.C. - contact@dubas.pro",
+    "authors": [
+        "Arkadiy Asuratov",
+        "Emil Dubielecki"
+    ],
     "acceptableVersions": [
-        ">=6.1.0"
+        ">=7.0.0"
     ],
     "php": [
-        ">=7.3"
+        ">=7.4"
     ],
     "checkVersionUrl": "https://devcrm.it",
     "releaseDate": "2021-01-31"

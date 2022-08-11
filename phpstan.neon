@@ -1,0 +1,10 @@
+parameters:
+  phpVersion: 70400 # PHP 7.4
+  level: 8
+  paths:
+    - src
+
+  bootstrapFiles:
+    - site/bootstrap.php
+
+  checkGenericClassInNonGenericObjectType: false
