@@ -25,6 +25,8 @@ use Espo\Core\Exceptions\Error;
 
 class UuidManager extends \Espo\Core\ORM\Entity
 {
+    public const ENTITY_TYPE = 'UuidManager';
+
     protected function _setName($value)
     {
         if (empty($value)) {
