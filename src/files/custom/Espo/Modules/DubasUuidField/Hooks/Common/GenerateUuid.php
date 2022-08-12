@@ -21,32 +21,47 @@
 
 namespace Espo\Modules\DubasUuidField\Hooks\Common;
 
-use Espo\Core\Di;
+use Espo\Core\ORM\EntityManager;
+use Espo\Core\Utils\Metadata;
 use Espo\ORM\Entity;
+use Espo\Modules\DubasUuidField\Entities\UuidManager as UuidManagerEntity;
+use Espo\Modules\DubasUuidField\Repositories\UuidManager as UuidManagerRepository;
 
-class GenerateUuid implements
-    Di\EntityManagerAware,
-    Di\MetadataAware
+class GenerateUuid
 {
-    use Di\EntityManagerSetter;
-    use Di\MetadataSetter;
-
     public static $order = 9;
+
+    private EntityManager $entityManager;
+
+    private Metadata $metadata;
+
+    public function __construct(
+        EntityManager $entityManager,
+        Metadata $metadata
+    ) {
+        $this->entityManager = $entityManager;
+        $this->metadata = $metadata;
+    }
 
     public function beforeSave(Entity $entity, array $options = []): void
     {
         $fieldDefs = $this->metadata->get(['entityDefs', $entity->getEntityType(), 'fields'], []);
         foreach ($fieldDefs as $fieldName => $defs) {
             if (isset($defs['type']) && $defs['type'] === 'uuid') {
+                // Do not generate uuid during import.
                 if (!empty($options['import']) && $entity->has($fieldName)) {
                     continue;
                 }
 
+                // Do not generate if uuid exists.
                 if ($entity->get($fieldName)) {
                     continue;
                 }
 
-                $uuidManager = $this->entityManager->getRepository('UuidManager')->storeEntityUuid($entity, $fieldName);
+                /** @var UuidManagerRepository $uuidManagerRepository */
+                $uuidManagerRepository = $this->entityManager->getRepository(UuidManagerEntity::ENTITY_TYPE);
+
+                $uuidManager = $uuidManagerRepository->storeEntityUuid($entity, $fieldName);
 
                 $entity->set($fieldName, $uuidManager->get('name'));
             }
