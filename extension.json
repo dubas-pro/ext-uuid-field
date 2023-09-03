@@ -13,6 +13,6 @@
     "php": [
         ">=8.0.0 <8.3.0"
     ],
-    "checkVersionUrl": "https://devcrm.it",
+    "checkVersionUrl": "https://verify.devcrm.dev",
     "releaseDate": "2021-01-31"
 }
