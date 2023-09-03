@@ -3,7 +3,7 @@
  * This file is part of the Dubas UUID Field - EspoCRM extension.
  *
  * dubas s.c. - contact@dubas.pro
- * Copyright (C) 2021-2022 Arkadiy Asuratov, Emil Dubielecki
+ * Copyright (C) 2021-2023 Arkadiy Asuratov, Emil Dubielecki
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by

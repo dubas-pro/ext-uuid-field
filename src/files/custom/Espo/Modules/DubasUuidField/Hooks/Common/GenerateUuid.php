@@ -3,7 +3,7 @@
  * This file is part of the Dubas UUID Field - EspoCRM extension.
  *
  * dubas s.c. - contact@dubas.pro
- * Copyright (C) 2021-2022 Arkadiy Asuratov, Emil Dubielecki
+ * Copyright (C) 2021-2023 Arkadiy Asuratov, Emil Dubielecki
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,9 +23,9 @@ namespace Espo\Modules\DubasUuidField\Hooks\Common;
 
 use Espo\Core\ORM\EntityManager;
 use Espo\Core\Utils\Metadata;
-use Espo\ORM\Entity;
 use Espo\Modules\DubasUuidField\Entities\UuidManager as UuidManagerEntity;
 use Espo\Modules\DubasUuidField\Repositories\UuidManager as UuidManagerRepository;
+use Espo\ORM\Entity;
 
 class GenerateUuid
 {
