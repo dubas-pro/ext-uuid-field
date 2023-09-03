@@ -1,0 +1,8 @@
+{
+    "files.exclude": {
+        "**/site/custom/Espo/Modules/DubasUuidField": true
+    },
+    "files.watcherExclude": {
+        "**/site/custom/Espo/Modules/DubasUuidField/**": true
+    }
+}
