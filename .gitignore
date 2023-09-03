@@ -6,7 +6,6 @@ project.properties
 .project
 .settings*
 .idea
-.vscode
 *.sublime-project
 *.sublime-workspace
 .sublimelinterrc
@@ -16,11 +15,15 @@ build/
 html/
 site/
 !src/**/site/
+!src/**/html/
 tests/integration/config.php
 .env
-config.json
-config.php
+/config.json
+/config.php
 /extensions/
+
+src/files/client/custom/src/
+src/files/custom/Espo/Custom/
 
 # Package Managers
 .eslintcache
