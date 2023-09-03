@@ -1,21 +1,12 @@
-FROM devilbox/php-fpm:8.0-work
+FROM devilbox/php-fpm:8.1-work
 
+USER devilbox
+RUN ["/bin/bash", "-c", "/usr/local/bin/composer global require dubas/espo-console"]
+
+USER root
 RUN set -ex; \
     \
-    apt-get update; \
-    apt-get install -y --no-install-recommends \
-        libzmq3-dev; \
-    \
-# Install php-zmq
-    cd /usr; \
-    curl -fSL https://github.com/zeromq/php-zmq/archive/ee5fbc693f07b2d6f0d9fd748f131be82310f386.tar.gz -o php-zmq.tar.gz; \
-    tar -zxf php-zmq.tar.gz; \
-    cd php-zmq*; \
-    phpize && ./configure; \
-    make; \
-    make install; \
-    cd .. && rm -rf php-zmq*; \
-# END: Install php-zmq
-    docker-php-ext-enable zmq;
+    ln --symbolic /home/devilbox/.composer/vendor/bin/espo /usr/local/bin/espo; \
+    ln --symbolic /opt/nvm/versions/node/*/bin/pnpm /usr/local/bin/pnpm;
 
-COPY --chmod=0755 ./docker-*.sh  /usr/local/bin/
+COPY --chmod=0755 common/docker-*.sh  /usr/local/bin/
