@@ -55,7 +55,7 @@ Support requests in issues on this repository will be closed on sight.
 
 ## License
 
-DUBAS S.C. - contact@dubas.pro
+dubas s.c. - contact@dubas.pro
 
 Copyright (C) 2021 Arkadiy Asuratov, Emil Dubielecki
 

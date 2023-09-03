@@ -2,7 +2,7 @@
     "module": "DubasUuidField",
     "name": "Dubas UUID Field",
     "description": "Add field for generating universally unique identifiers (UUIDs).",
-    "author": "DUBAS S.C. - contact@dubas.pro",
+    "author": "dubas s.c. - contact@dubas.pro",
     "authors": [
         "Arkadiy Asuratov",
         "Emil Dubielecki"

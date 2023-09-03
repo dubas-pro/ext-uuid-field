@@ -13,7 +13,7 @@
         "phpstan": "vendor/bin/phpstan",
         "rector": "composer exec rector -- --clear-cache"
     },
-    "author": "DUBAS S.C. - contact@dubas.pro",
+    "author": "dubas s.c. - contact@dubas.pro",
     "license": "GPL-3.0",
     "devDependencies": {
         "eslint": "^8.48.0",
