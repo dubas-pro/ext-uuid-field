@@ -19,23 +19,16 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace Espo\Modules\DubasUuidField\Hooks\Common;
+namespace Espo\Modules\DubasUuidField\Classes\Uuid;
 
-use Espo\Modules\DubasUuidField\Tools\FieldProcessing\Uuid\BeforeSaveProcessor as Processor;
+use Espo\Modules\DubasUuidField\Tools\FieldProcessing\Uuid\Uuid;
 use Espo\ORM\Entity;
+use Ramsey\Uuid\Uuid as RamseyUuid;
 
-class GenerateUuid
+class Uuid4 implements Uuid
 {
-    public function __construct(
-        private Processor $processor
-    ) {
-    }
-
-    /**
-     * @param array<string,mixed> $options Options.
-     */
-    public function beforeSave(Entity $entity, array $options = []): void
+    public function toString(Entity $entity): string
     {
-        $this->processor->process($entity, $options);
+        return RamseyUuid::uuid4()->toString();
     }
 }

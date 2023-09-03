@@ -1,0 +1,6 @@
+{
+    "uuidVersionClassNameMap": {
+        "1": "Espo\\Modules\\DubasUuidField\\Classes\\Uuid\\Uuid1",
+        "4": "Espo\\Modules\\DubasUuidField\\Classes\\Uuid\\Uuid4"
+    }
+}

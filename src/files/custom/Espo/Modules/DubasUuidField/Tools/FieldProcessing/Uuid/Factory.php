@@ -19,23 +19,29 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace Espo\Modules\DubasUuidField\Hooks\Common;
+namespace Espo\Modules\DubasUuidField\Tools\FieldProcessing\Uuid;
 
-use Espo\Modules\DubasUuidField\Tools\FieldProcessing\Uuid\BeforeSaveProcessor as Processor;
-use Espo\ORM\Entity;
+use Espo\Core\InjectableFactory;
+use Espo\Core\Utils\Metadata;
+use RuntimeException;
 
-class GenerateUuid
+class Factory
 {
     public function __construct(
-        private Processor $processor
+        private Metadata $metadata,
+        private InjectableFactory $injectableFactory
     ) {
     }
 
-    /**
-     * @param array<string,mixed> $options Options.
-     */
-    public function beforeSave(Entity $entity, array $options = []): void
+    public function create(string $version): Uuid
     {
-        $this->processor->process($entity, $options);
+        /** @var ?class-string<Uuid> $className */
+        $className = $this->metadata->get(['app', 'uuid', 'uuidVersionClassNameMap', $version]);
+
+        if (!$className) {
+            throw new RuntimeException("Unsupported version '{$version}'.");
+        }
+
+        return $this->injectableFactory->create($className);
     }
 }

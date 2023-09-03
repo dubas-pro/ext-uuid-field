@@ -19,33 +19,16 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace Espo\Modules\DubasUuidField\Core\Utils;
+namespace Espo\Modules\DubasUuidField\Classes\Uuid;
 
+use Espo\Modules\DubasUuidField\Tools\FieldProcessing\Uuid\Uuid;
+use Espo\ORM\Entity;
 use Ramsey\Uuid\Uuid as RamseyUuid;
 
-class Uuid
+class Uuid1 implements Uuid
 {
-    public function generateByVersion(string $version): string
+    public function toString(Entity $entity): string
     {
-        $methodName = 'uuid' . $version;
-        if (\method_exists($this, $methodName)) {
-            return $this->$methodName();
-        }
-
-        return '';
-    }
-
-    public function uuid1(): string
-    {
-        $uuid = RamseyUuid::uuid1();
-
-        return $uuid->toString();
-    }
-
-    public function uuid4(): string
-    {
-        $uuid = RamseyUuid::uuid4();
-
-        return $uuid->toString();
+        return RamseyUuid::uuid1()->toString();
     }
 }

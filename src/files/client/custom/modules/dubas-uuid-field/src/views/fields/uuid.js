@@ -18,21 +18,13 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ************************************************************************/
 
-define('dubas-uuid-field:views/fields/uuid', 'views/fields/base', (Dep) => {
+define('dubas-uuid-field:views/fields/uuid', 'views/fields/varchar', (Dep) => {
 
     return Dep.extend({
-
-        type: 'uuid',
-
-        validations: [],
 
         inlineEditDisabled: true,
 
         readOnly: true,
-
-        fetch: function () {
-            return {};
-        },
 
     });
 
