@@ -1,14 +1,8 @@
 {
-    "labels": {
-        "UUIDs": "UUIDs"
-    },
     "fields": {
         "uuidVersion": "UUID Version"
     },
     "fieldTypes": {
         "uuid": "UUID"
-    },
-    "descriptions": {
-        "uuidManager": "All UUIDs stored in the system."
     }
 }
