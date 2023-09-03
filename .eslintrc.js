@@ -36,7 +36,9 @@ module.exports = {
         'define': 'readonly',
         '_': 'readonly',
         'moment': 'readonly',
-        'Backbone': 'readonly'
+        'Backbone': 'readonly',
+        'Handlebars': 'readonly',
+        'ace': 'readonly'
     },
     parserOptions: {
         'ecmaVersion': 12,
@@ -46,6 +48,7 @@ module.exports = {
         'header'
     ],
     ignorePatterns: [
+        '/build/**',
         '/site/**',
         'src/**/lib/**'
     ],
