@@ -20,53 +20,12 @@
  */
 
 use Espo\Core\Container;
-use Espo\Core\Utils\File\Manager as FileManager;
 
 class BeforeInstall
 {
-    private Container $container;
+    protected Container $container;
 
     public function run(Container $container): void
     {
-        $this->container = $container;
-        $this->cleanupPaths();
-        $this->clearCache();
-    }
-
-    /**
-     * Clean up.
-     */
-    private function cleanupPaths(): void
-    {
-        $fileManager = $this->getFileManager();
-
-        $pathList = [
-            'application/Espo/Modules/DubasUuidField',
-            'client/modules/dubas-uuid-field',
-        ];
-
-        foreach ($pathList as $path) {
-            if ($fileManager->exists($path) && $fileManager->isDir($path)) {
-                $fileManager->removeInDir($path, true);
-            }
-        }
-    }
-
-    private function getFileManager(): FileManager
-    {
-        /** @var FileManager $fileManager */
-        $fileManager = $this->container->get('fileManager');
-
-        return $fileManager;
-    }
-
-    private function clearCache(): void
-    {
-        try {
-            /** @var \Espo\Core\DataManager $dataManager */
-            $dataManager = $this->container->get('dataManager');
-            $dataManager->clearCache();
-        } catch (\Exception $e) {
-        }
     }
 }
