@@ -1,14 +1,14 @@
 {
-    "require-dev": {
-        "php": "^7.4|^8.0",
-        "phpstan/phpstan": "^1.7",
-        "rector/rector": "^0.13",
-        "symplify/easy-coding-standard": "^10.2"
-    },
     "config": {
-        "sort-packages": true,
-        "platform": {
-            "php": "7.4"
-        }
+        "sort-packages": true
+    },
+    "require": {
+        "php": ">=8.0.0 <8.3.0"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^1.10",
+        "phpunit/phpunit": "^10.3",
+        "rector/rector": "^0.18.1",
+        "symplify/easy-coding-standard": "^12.0"
     }
 }
