@@ -1,8 +1,8 @@
 # Dubas UUID Field for EspoCRM
 
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/dubas-pro/ext-uuid-field)](https://devcrm.it/uuid)
-[![EspoCRM](https://img.shields.io/badge/espocrm-%3E%3D6.1.0-blue)](#dubas-uuid-field-for-espocrm)
-[![PHP](https://img.shields.io/badge/php-%3E%3D7.3-blue)](#dubas-uuid-field-for-espocrm)
+[![EspoCRM](https://img.shields.io/badge/espocrm-%3E%3D7.0.0-blue)](#dubas-uuid-field-for-espocrm)
+[![PHP](https://img.shields.io/badge/php-%3E%3D8.0-blue)](#dubas-uuid-field-for-espocrm)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 The EspoCRM extension for generating universally unique identifiers (UUIDs). It uses [ramsey/uuid](https://github.com/ramsey/uuid) to generate UUIDs.
@@ -12,14 +12,10 @@ The EspoCRM extension for generating universally unique identifiers (UUIDs). It 
 - [Version 1: Time-based](https://uuid.ramsey.dev/en/latest/rfc4122/version1.html#rfc4122-version1)
 - [Version 4: Random](https://uuid.ramsey.dev/en/latest/rfc4122/version4.html#rfc4122-version4)
 
-## Screenshot
-
-[![Screenshot of Dubas UUID field for EspoCRM](https://devcrm.it/files/2020-12-13_01-20-31_6df171-uF-779948_65b07ac0379e20.png)](#screenshot)
-
 ## Requirements
 
-- EspoCRM 6.1.0 or later;
-- PHP 7.3 or later;
+- EspoCRM 7.0.0 or later;
+- PHP 8.0 or later;
 
 ### Optional PHP extensions
 
@@ -57,6 +53,6 @@ Support requests in issues on this repository will be closed on sight.
 
 dubas s.c. - contact@dubas.pro
 
-Copyright (C) 2021 Arkadiy Asuratov, Emil Dubielecki
+Copyright (C) 2023 Arkadiy Asuratov, Emil Dubielecki
 
 Dubas UUID Field extension for EspoCRM is published under the [GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.html).
