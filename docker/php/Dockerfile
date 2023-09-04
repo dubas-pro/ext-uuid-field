@@ -1,4 +1,6 @@
-FROM devilbox/php-fpm:8.1-work
+ARG PHP_VERSION
+
+FROM devilbox/php-fpm:${PHP_VERSION}
 
 USER devilbox
 RUN ["/bin/bash", "-c", "/usr/local/bin/composer global require dubas/espo-console"]

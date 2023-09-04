@@ -9,7 +9,10 @@ services:
   # PHP
   # ------------------------------------------------------------
   php: &php
-    build: ./docker/php
+    build:
+      context: ./docker/php
+      args:
+        PHP_VERSION: ${PHP_VERSION:-8.0-work}
     container_name: php
     restart: unless-stopped
     working_dir: /var/www/default
