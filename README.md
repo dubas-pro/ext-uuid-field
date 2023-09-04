@@ -29,9 +29,9 @@ While not required, these extensions improve the performance of [ramsey/uuid](ht
 
 ### Installing an extension
 
-You can download the extension from https://devcrm.it/uuid as a zip file.
+Download the latest ZIP from the [releases page](https://github.com/dubas-pro/ext-uuid-field/releases/latest).
 
-Instructions for installing EspoCRM Extensions can be found in the [official documentation](https://docs.espocrm.com/administration/extensions/#installing).
+The instructions for installing EspoCRM extensions can be found in the [official documentation](https://docs.espocrm.com/administration/extensions/#installing).
 
 ### Creating UUID field
 
